@@ -10,7 +10,7 @@ class FadecandyNode:
             try:
                 self._driver = FadecandyDriver()
             except IOError:
-                rospy.logwarn('Failed to connect to Fadecandy device; will retry every second')
+                rospy.logwarn_throttle(60, 'Failed to connect to Fadecandy device; will retry every second')
             else:
                 rospy.loginfo('Connected to Fadecandy device')
                 break
